@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>冥想音频合集 - Plyr 互斥版</title>
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>冥想音频合集</h1>
+
+    <div class="audio-block">
+      <h2>3分钟呼吸空间常规式5</h2>
+      <audio class="js-player" controls>
+        <source src="audio/breath_space_regular.mp3" type="audio/mp3" />
+      </audio>
+    </div>
+    
+
+    <div class="audio-block">
+      <h2>3分钟呼吸空间回应式6</h2>
+      <audio class="js-player" controls>
+        <source src="audio/breath_space_respond_6.mp3" type="audio/mp3" />
+      </audio>
+    </div>
+    
+
+    <div class="audio-block">
+      <h2>20分钟正念静坐19</h2>
+      <audio class="js-player" controls>
+        <source src="audio/mindfulness_sit_20min_19.mp3" type="audio/mp3" />
+      </audio>
+    </div>
+    
+
+    <div class="audio-block">
+      <h2>湖的冥想7</h2>
+      <audio class="js-player" controls>
+        <source src="audio/lake_meditation_7.mp3" type="audio/mp3" />
+      </audio>
+    </div>
+    
+
+    <div class="audio-block">
+      <h2>静默30</h2>
+      <audio class="js-player" controls>
+        <source src="audio/silent_meditation_30.mp3" type="audio/mp3" />
+      </audio>
+    </div>
+    
+
+    <div class="audio-block">
+      <h2>葡萄干练习9</h2>
+      <audio class="js-player" controls>
+        <source src="audio/raisin_exercise_9.mp3" type="audio/mp3" />
+      </audio>
+    </div>
+    
+
+    <div class="audio-block">
+      <h2>山的冥想12</h2>
+      <audio class="js-player" controls>
+        <source src="audio/mountain_meditation_12.mp3" type="audio/mp3" />
+      </audio>
+    </div>
+    
+
+    <div class="audio-block">
+      <h2>身体扫描38</h2>
+      <audio class="js-player" controls>
+        <source src="audio/body_scan_38.mp3" type="audio/mp3" />
+      </audio>
+    </div>
+    
+
+    <div class="audio-block">
+      <h2>十分钟静坐10</h2>
+      <audio class="js-player" controls>
+        <source src="audio/mindfulness_sit_10.mp3" type="audio/mp3" />
+      </audio>
+    </div>
+    
+
+    <div class="audio-block">
+      <h2>探索困难的正念27</h2>
+      <audio class="js-player" controls>
+        <source src="audio/explore_difficult_mindfulness_27.mp3" type="audio/mp3" />
+      </audio>
+    </div>
+    
+
+    <div class="audio-block">
+      <h2>正念静坐38</h2>
+      <audio class="js-player" controls>
+        <source src="audio/mindfulness_sit_38.mp3" type="audio/mp3" />
+      </audio>
+    </div>
+    
+
+    <div class="audio-block">
+      <h2>正念伸展与正念呼吸37</h2>
+      <audio class="js-player" controls>
+        <source src="audio/stretching_and_breathing_37.mp3" type="audio/mp3" />
+      </audio>
+    </div>
+    
+
+    <div class="audio-block">
+      <h2>正念行走15</h2>
+      <audio class="js-player" controls>
+        <source src="audio/mindful_walking_15.mp3" type="audio/mp3" />
+      </audio>
+    </div>
+    
+
+    <div class="audio-block">
+      <h2>正念运动37</h2>
+      <audio class="js-player" controls>
+        <source src="audio/mindful_movement_37.mp3" type="audio/mp3" />
+      </audio>
+    </div>
+    
+
+    <div class="audio-block">
+      <h2>CBT腹式呼吸25</h2>
+      <audio class="js-player" controls>
+        <source src="audio/cbt_abdominal_breathing_25.mp3" type="audio/mp3" />
+      </audio>
+    </div>
+    
+
+    <div class="audio-block">
+      <h2>CBT渐进式肌肉放松30</h2>
+      <audio class="js-player" controls>
+        <source src="audio/cbt_pmr_relaxation_30.mp3" type="audio/mp3" />
+      </audio>
+    </div>
+    
+  <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+  <script>
+    const players = Plyr.setup('.js-player');
+
+    // 播放互斥控制逻辑
+    players.forEach(player => {
+      player.on('play', event => {
+        players.forEach(p => {
+          if (p !== player) {
+            p.pause();
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
